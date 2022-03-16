@@ -1,0 +1,22 @@
+﻿@model HotelOtomasyonuWeb.Models.Entity.TKullaniciSite
+@{
+    ViewBag.Title = "Profilim";
+    Layout = "~/Views/Shared/Misafir.cshtml";
+}
+
+<h2>Profilim</h2>
+<br />
+@using (Html.BeginForm("Profilim", "Misafir", FormMethod.Post))
+{
+    @Html.HiddenFor(b=>b.KullaniciID)
+    <label>İsim & Soyisim</label>
+    @Html.TextBoxFor(b => b.İsim, new { @class = "form-control" })
+    <br />
+    <label>Telefon</label>
+    @Html.TextBoxFor(b => b.Telefon, new { @class = "form-control" })
+    <br />
+    <label>Parola</label>
+    @Html.TextBoxFor(b => b.Parola, new { @class = "form-control" })
+    <br />
+    <input type="submit" class="btn btn-success" value="Bilgilerimi Kaydet"/>
+}

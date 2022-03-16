@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HotelOtomasyonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="THakkimdaSite">
+    <Key>
+      <PropertyRef Name="HakkimdaID" />
+    </Key>
+    <Property Name="HakkimdaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Hakkimda1" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Hakkimda2" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Hakkimda3" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Hakkimda4" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="HotelOtomasyonEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="THakkimdaSite" EntityType="Self.THakkimdaSite" />
+    <EntitySet Name="TIletisimSite" EntityType="HotelOtomasyonModel.TIletisimSite" />
+    <EntitySet Name="TMesajSite" EntityType="HotelOtomasyonModel.TMesajSite" />
+    <EntitySet Name="TKullaniciSite" EntityType="HotelOtomasyonModel.TKullaniciSite" />
+    <EntitySet Name="TMisafir" EntityType="HotelOtomasyonModel.TMisafir" />
+    <EntitySet Name="TRezervasyon" EntityType="HotelOtomasyonModel.TRezervasyon" />
+    <AssociationSet Name="FK_TRezervasyon_TMisafir" Association="HotelOtomasyonModel.FK_TRezervasyon_TMisafir">
+      <End Role="TMisafir" EntitySet="TMisafir" />
+      <End Role="TRezervasyon" EntitySet="TRezervasyon" />
+    </AssociationSet>
+    <EntitySet Name="TKMesajSite" EntityType="HotelOtomasyonModel.TKMesajSite" />
+  </EntityContainer>
+  <EntityType Name="TIletisimSite">
+    <Key>
+      <PropertyRef Name="IletisimID" />
+    </Key>
+    <Property Name="IletisimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Aciklama" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Koordinat" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Adres" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TMesajSite">
+    <Key>
+      <PropertyRef Name="MesajID" />
+    </Key>
+    <Property Name="MesajID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Gonderen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Konu" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Mesaj" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TKullaniciSite">
+    <Key>
+      <PropertyRef Name="KullaniciID" />
+    </Key>
+    <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="İsim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Parola" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TMisafir">
+    <Key>
+      <PropertyRef Name="MisafirID" />
+    </Key>
+    <Property Name="MisafirID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TC" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KimlikFoto1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="KimlikFoto2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Ulke" Type="Byte" />
+    <Property Name="Sehir" Type="Int32" />
+    <Property Name="Ilce" Type="Int32" />
+    <Property Name="Durum" Type="Byte" />
+    <NavigationProperty Name="TRezervasyon" Relationship="HotelOtomasyonModel.FK_TRezervasyon_TMisafir" FromRole="TMisafir" ToRole="TRezervasyon" />
+  </EntityType>
+  <EntityType Name="TRezervasyon">
+    <Key>
+      <PropertyRef Name="RezervasyonID" />
+    </Key>
+    <Property Name="RezervasyonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Misafir" Type="Byte" />
+    <Property Name="GirisTarih" Type="DateTime" Precision="0" />
+    <Property Name="CikisTarih" Type="DateTime" Precision="0" />
+    <Property Name="Kisi" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Oda" Type="Byte" />
+    <Property Name="RezervasyonKisi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Aciklama" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Durum" Type="Byte" />
+    <NavigationProperty Name="TMisafir" Relationship="HotelOtomasyonModel.FK_TRezervasyon_TMisafir" FromRole="TRezervasyon" ToRole="TMisafir" />
+  </EntityType>
+  <Association Name="FK_TRezervasyon_TMisafir">
+    <End Type="HotelOtomasyonModel.TMisafir" Role="TMisafir" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TRezervasyon" Role="TRezervasyon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TMisafir">
+        <PropertyRef Name="MisafirID" />
+      </Principal>
+      <Dependent Role="TRezervasyon">
+        <PropertyRef Name="Misafir" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TKMesajSite">
+    <Key>
+      <PropertyRef Name="MesajID" />
+    </Key>
+    <Property Name="MesajID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Alici" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gonderen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Konu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mesaj" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tarih" Type="DateTime" Precision="0" />
+  </EntityType>
+</Schema>

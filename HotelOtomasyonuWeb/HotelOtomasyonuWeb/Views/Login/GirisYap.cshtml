@@ -1,0 +1,63 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html lang="zxx">
+<head>
+    <title>MVC Hotels Giriş Yap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Erkan Bostan, MVC Hotels, Hotel Otomasyonu">
+    <script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+    </script>
+    <link href="~/HotelTemalar/ParticlesLogin/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="https://fonts.googleapis.com/css?family=Amiri:400,400i,700,700i" rel="stylesheet">
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <div class="w3ls-pos">
+        <h1>Hotel Misafir Giriş Sayfası</h1>
+        @if (ViewBag.giris != null)
+        {
+            <div style="font-size:30px;color:orangered" class="alert alert-success">
+                @ViewBag.giris
+            </div>
+            <br />
+        }
+        <div class="w3ls-login box">
+            <form action="#" method="post">
+                <div class="agile-field-txt">
+                    <input type="email" name="Email" placeholder="ornek@gmail.com" required="" />
+                </div>
+                <div class="agile-field-txt">
+                    <input type="password" name="Parola" placeholder="******" required="" id="myInput" />
+                </div>
+                <div>
+                    <a href="~/Login/KayitOl" style="color:white">Kayıt Ol</a>
+                </div>
+                <div class="w3ls-bot">
+                    <input type="submit" value="Giriş Yap">
+                </div>
+            </form>
+        </div>
+        <div class="copy-wthree">
+            <p>
+                © 2022 Hotel Giriş Form. All Rights Reserved | Design by
+                <a href="http://erkanbostan.com/" target="_blank">Erkan Bostan</a>
+            </p>
+        </div>
+    </div>
+    <script src='~/HotelTemalar/ParticlesLogin/js/particles.min.js'></script>
+    <script src="~/HotelTemalar/ParticlesLogin/js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HotelOtomasyonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="THakkimdaSite">
+    <Key>
+      <PropertyRef Name="HakkimdaID" />
+    </Key>
+    <Property Name="HakkimdaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hakkimda1" Type="varchar" MaxLength="1000" />
+    <Property Name="Hakkimda2" Type="varchar" MaxLength="1000" />
+    <Property Name="Hakkimda3" Type="varchar" MaxLength="1000" />
+    <Property Name="Hakkimda4" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="TIletisimSite">
+    <Key>
+      <PropertyRef Name="IletisimID" />
+    </Key>
+    <Property Name="IletisimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Aciklama" Type="varchar" MaxLength="1000" />
+    <Property Name="Koordinat" Type="varchar" MaxLength="1000" />
+    <Property Name="Telefon" Type="varchar" MaxLength="50" />
+    <Property Name="Mail" Type="varchar" MaxLength="50" />
+    <Property Name="Adres" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="TKMesajSite">
+    <Key>
+      <PropertyRef Name="MesajID" />
+    </Key>
+    <Property Name="MesajID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Alici" Type="varchar" MaxLength="50" />
+    <Property Name="Gonderen" Type="varchar" MaxLength="50" />
+    <Property Name="Konu" Type="varchar" MaxLength="50" />
+    <Property Name="Mesaj" Type="varchar" MaxLength="50" />
+    <Property Name="Tarih" Type="date" />
+  </EntityType>
+  <EntityType Name="TKullaniciSite">
+    <Key>
+      <PropertyRef Name="KullaniciID" />
+    </Key>
+    <Property Name="KullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="İsim" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Telefon" Type="varchar" MaxLength="50" />
+    <Property Name="Parola" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TMesajSite">
+    <Key>
+      <PropertyRef Name="MesajID" />
+    </Key>
+    <Property Name="MesajID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Gonderen" Type="varchar" MaxLength="50" />
+    <Property Name="Mail" Type="varchar" MaxLength="150" />
+    <Property Name="Konu" Type="varchar" MaxLength="150" />
+    <Property Name="Mesaj" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="TMisafir">
+    <Key>
+      <PropertyRef Name="MisafirID" />
+    </Key>
+    <Property Name="MisafirID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+    <Property Name="TC" Type="char" MaxLength="11" />
+    <Property Name="Mail" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefon" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adres" Type="nvarchar(max)" />
+    <Property Name="Aciklama" Type="nvarchar(max)" />
+    <Property Name="KimlikFoto1" Type="nvarchar" MaxLength="100" />
+    <Property Name="KimlikFoto2" Type="nvarchar" MaxLength="100" />
+    <Property Name="Ulke" Type="tinyint" />
+    <Property Name="Sehir" Type="int" />
+    <Property Name="Ilce" Type="int" />
+    <Property Name="Durum" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="TRezervasyon">
+    <Key>
+      <PropertyRef Name="RezervasyonID" />
+    </Key>
+    <Property Name="RezervasyonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Misafir" Type="tinyint" />
+    <Property Name="GirisTarih" Type="date" />
+    <Property Name="CikisTarih" Type="date" />
+    <Property Name="Kisi" Type="char" MaxLength="1" />
+    <Property Name="Oda" Type="tinyint" />
+    <Property Name="RezervasyonKisi" Type="varchar" MaxLength="50" />
+    <Property Name="Telefon" Type="varchar" MaxLength="50" />
+    <Property Name="Aciklama" Type="varchar" MaxLength="500" />
+    <Property Name="Durum" Type="tinyint" />
+  </EntityType>
+  <Association Name="FK_TRezervasyon_TMisafir">
+    <End Role="TMisafir" Type="Self.TMisafir" Multiplicity="0..1" />
+    <End Role="TRezervasyon" Type="Self.TRezervasyon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TMisafir">
+        <PropertyRef Name="MisafirID" />
+      </Principal>
+      <Dependent Role="TRezervasyon">
+        <PropertyRef Name="Misafir" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HotelOtomasyonModelStoreContainer">
+    <EntitySet Name="THakkimdaSite" EntityType="Self.THakkimdaSite" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIletisimSite" EntityType="Self.TIletisimSite" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TKMesajSite" EntityType="Self.TKMesajSite" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TKullaniciSite" EntityType="Self.TKullaniciSite" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TMesajSite" EntityType="Self.TMesajSite" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TMisafir" EntityType="Self.TMisafir" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TRezervasyon" EntityType="Self.TRezervasyon" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TRezervasyon_TMisafir" Association="Self.FK_TRezervasyon_TMisafir">
+      <End Role="TMisafir" EntitySet="TMisafir" />
+      <End Role="TRezervasyon" EntitySet="TRezervasyon" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

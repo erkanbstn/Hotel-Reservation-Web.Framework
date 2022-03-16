@@ -1,0 +1,21 @@
+﻿
+@using (Html.BeginForm("MesajGonder", "Iletisim", FormMethod.Post))
+{
+    <div class="map-content-9 mt-lg-0 mt-4">
+        <form action="~/Mail/MailGonder/" method="post">
+            <div class="twice-two">
+                <input type="text" class="form-control" name="Gonderen" id="w3lName" placeholder="İsim & Soyisim"
+                       required="">
+                <input type="email" class="form-control" name="Mail" placeholder="Mail"
+                       required="">
+            </div>
+            <div class="twice">
+                <input type="text" class="form-control" name="Konu" id="w3lSubject"
+                       placeholder="Konu" required="">
+            </div>
+            <textarea name="Mesaj" class="form-control" id="w3lMessage" placeholder="Mesaj"
+                      required=""></textarea>
+            <button type="submit" class="btn btn-contact">Mesaj Gönder</button>
+        </form>
+    </div>
+}

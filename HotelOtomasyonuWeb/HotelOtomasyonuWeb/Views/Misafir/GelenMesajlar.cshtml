@@ -1,0 +1,43 @@
+﻿@using HotelOtomasyonuWeb.Models.Entity;
+@model List<TKMesajSite>
+@{
+    ViewBag.Title = "GelenMesajlar";
+    Layout = "~/Views/Shared/Misafir.cshtml";
+}
+
+
+<h2>Gelen Mesajlar</h2>
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>
+            Gönderen
+        </th>
+        <th>
+            Konu
+        </th>
+        <th>
+            Mesajı Aç
+        </th>
+    </tr>
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>
+                @i.Gonderen
+            </td>
+            <td>
+                @i.Konu
+            </td>
+            <td>
+                @Convert.ToDateTime(i.Tarih).ToString("dd/MMMM/yyyy")
+            </td>
+            <td>
+                <a href="~/Misafir/MesajDetay/@i.MesajID" class="btn btn-success">Mesajı Aç</a>
+            </td>
+        </tr>
+    }
+</table>
+<a href="~/Misafir/YeniMesaj" class="btn btn-danger">Yeni Mesaj Gönder</a>
+
+

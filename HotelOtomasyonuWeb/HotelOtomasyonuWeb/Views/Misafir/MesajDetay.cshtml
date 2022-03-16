@@ -1,0 +1,10 @@
+﻿@model HotelOtomasyonuWeb.Models.Entity.TKMesajSite
+@{
+    ViewBag.Title = "MesajDetay";
+    Layout = "~/Views/Shared/Misafir.cshtml";
+}
+
+<h2>Mesaj Detayı</h2>
+<br />
+@Html.TextAreaFor(b => b.Mesaj, 6, 10, new { @class = "form-control" })
+

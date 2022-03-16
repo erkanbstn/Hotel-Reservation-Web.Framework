@@ -1,0 +1,20 @@
+﻿
+@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>.Net Framework Hotels</title>
+    <link href="//fonts.googleapis.com/css?family=Spartan:400,500,600,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/HotelTemalar/Hotels/assets/css/style-starter.css">
+</head>
+<body>
+    @Html.Action("HeaderPartial", "Hotel")
+    @RenderBody()
+    @Html.Action("FooterPartial", "Hotel")
+    @Html.Action("ScriptPartial", "Hotel")
+</body>
+</html>

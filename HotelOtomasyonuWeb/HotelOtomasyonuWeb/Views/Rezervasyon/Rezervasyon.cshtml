@@ -1,0 +1,116 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MVC Hotels Rezervasyon Yap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="Erkan Bostan, MVC Hotels, Hotel Otomasyonu" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href='//fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Montserrat:700,400' rel='stylesheet' type='text/css'>
+    <link href="~/HotelTemalar/LuxuryRezervasyon/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="~/HotelTemalar/LuxuryRezervasyon/css/bootstrap.css" rel='stylesheet' type='text/css' media="all">
+    <script src="~/HotelTemalar/LuxuryRezervasyon/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/HotelTemalar/LuxuryRezervasyon/js/move-top.js"></script>
+    <script type="text/javascript" src="~/HotelTemalar/LuxuryRezervasyon/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>MVC Hotel Rezervasyon</h1>
+    </div>
+
+    <div class="banner-top">
+        <h2>Rezervasyonunuzu Tanımlayın!</h2>
+        <form method="post">
+            <div class="banner-bottom">
+                <div class="bnr-one">
+                    <div class="bnr-left">
+                        <p>Giriş Tarih</p>
+                    </div>
+                    <div class="bnr-right">
+                        <input name="GirisTarih" type="date" class="form-control" required>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="bnr-one">
+                    <div class="bnr-left">
+                        <p>Çıkış Tarih</p>
+                    </div>
+                    <div class="bnr-right">
+                        <input name="CikisTarih" type="date" class="form-control" required>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="bnr-one">
+                    <div class="bnr-left">
+                        <p>Ad Soyad</p>
+                    </div>
+                    <div class="bnr-right">
+                        <input type="text" name="RezervasyonKisi" placeholder="Ad Soyad" required>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="bnr-one">
+                    <div class="bnr-left">
+                        <p>Kişi Sayısı</p>
+                    </div>
+                    <div class="bnr-right">
+                        <input type="number" name="Kisi" class="form-control" placeholder="Kişi Sayısı" required>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="bnr-one">
+                    <div class="bnr-left">
+                        <p>Telefon</p>
+                    </div>
+                    <div class="bnr-right">
+                        <input type="text" name="Telefon" placeholder="Telefon" required>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="bnr-one">
+                    <div class="bnr-left">
+                        <p>Eklemek İstedikleriniz</p>
+                    </div>
+                    <div class="bnr-right">
+                        <input type="text" name="Aciklama" placeholder="Eklemek İstedikleriniz" required>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="bnr-btn">
+                    <input type="submit" value="Şimdi Rezervasyon Yap!">
+                </div>
+            </div>
+        </form>
+
+        <!---start-date-piker---->
+        <link rel="stylesheet" href="~/HotelTemalar/LuxuryRezervasyon/css/jquery-ui.css" />
+        <script src="~/HotelTemalar/LuxuryRezervasyon/js/jquery-ui.js"></script>
+        <script>
+            $(function () {
+                $("#datepicker,#datepicker1").datepicker();
+            });
+        </script>
+        <!---/End-date-piker---->
+    </div>
+    <div class="footer">
+        <p>Copyright © Hotel Rezervasyon Form. All Rights Reserved | Design by <a href="http://erkanbostan.com" target="_blank">Erkan Bostan</a></p>
+    </div>
+</body>
+</html>

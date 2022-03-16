@@ -1,0 +1,43 @@
+﻿@using HotelOtomasyonuWeb.Models.Entity;
+@model List<TRezervasyon>
+@{
+    ViewBag.Title = "Rezervasyonlarim";
+    Layout = "~/Views/Shared/Misafir.cshtml";
+}
+
+<h2>Rezervasyonlarım</h2>
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>
+            Misafir Bilgisi
+        </th>
+        <th>
+            Giriş Tarihi
+        </th>
+        <th>
+            Çıkış Tarihi
+        </th>
+        <th>
+            Kişi
+        </th>
+    </tr>
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>
+                @i.TMisafir.Ad
+            </td>
+            <td>
+                @Convert.ToDateTime(i.GirisTarih).ToString("dd/MMMM/yyyy")
+            </td>
+            <td>
+                @Convert.ToDateTime(i.CikisTarih).ToString("dd/MMMM/yyyy")
+            </td>
+            <td>
+                @i.Kisi
+            </td>
+        </tr>
+    }
+</table>
+
